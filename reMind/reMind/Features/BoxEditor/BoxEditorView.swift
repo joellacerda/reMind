@@ -12,6 +12,9 @@ struct BoxEditorView: View {
     @State var keywords: String
     @State var description: String
     @State var theme: Int
+    
+    @EnvironmentObject var viewModel: BoxViewModel
+    @Environment(\.dismiss)  var dismiss
 
     var body: some View {
         NavigationStack {
@@ -35,13 +38,17 @@ struct BoxEditorView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button("Cancel") {
-                        print("Cancel")
+                        dismiss()
                     }
                 }
 
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Save") {
-                        print("Cancel")
+                        let newBox = Box(context: CoreDataStack.shared.managedContext)
+                        newBox.name = name
+                        newBox.rawTheme = Int16(theme)
+                        CoreDataStack.shared.saveContext()
+                        dismiss()
                     }
                     .fontWeight(.bold)
                 }
