@@ -47,6 +47,7 @@ struct BoxEditorView: View {
                         let newBox = Box(context: CoreDataStack.shared.managedContext)
                         newBox.name = name
                         newBox.rawTheme = Int16(theme)
+                        viewModel.boxes.append(newBox)
                         CoreDataStack.shared.saveContext()
                         dismiss()
                     }

@@ -26,6 +26,8 @@ struct reTextEditor: View {
                             self.text = String(text.prefix(maxSize))
                         }
                     }
+                    
+                    
 
                 Divider()
                     .background(Palette.label.render.opacity(0.6))
@@ -34,11 +36,13 @@ struct reTextEditor: View {
                     .font(.callout)
                     .fontWeight(.bold)
                     .frame(maxWidth: .infinity, alignment: .trailing)
+                
             }
             .padding(8)
             .frame(height: 200)
             .background(Palette.background.render)
             .cornerRadius(10)
+            .shadow(color: .black.opacity(0.25) ,radius: 10)
         }
     }
 }
