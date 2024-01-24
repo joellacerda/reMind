@@ -17,6 +17,10 @@ struct reRadioButton: View {
         ZStack {
             Circle()
                 .fill(self.color)
+                .overlay(
+                    Circle()
+                        .stroke(Color.black, lineWidth: currentSelection == tag ? 2 : 0)
+                )
 
             if currentSelection == tag {
                 Circle()
