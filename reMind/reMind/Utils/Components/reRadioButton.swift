@@ -26,13 +26,13 @@ struct reRadioButton: View {
                 Circle()
                     .fill(Palette.selectionColor.render)
                     .frame(maxWidth: 30)
+            } else {
+                EmptyView() // Use EmptyView instead of conditional visibility
             }
         }
         .frame(maxWidth: 50)
         .onTapGesture {
-            if currentSelection != tag {
-                currentSelection = tag
-            }
+            currentSelection = tag
         }
     }
 }
