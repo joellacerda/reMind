@@ -49,6 +49,7 @@ struct BoxesView: View {
                           keywords: "",
                           description: "",
                           theme: 0)
+            .environmentObject(viewModel)
         }
     }
 }

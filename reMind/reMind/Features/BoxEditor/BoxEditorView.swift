@@ -49,6 +49,7 @@ struct BoxEditorView: View {
                         newBox.rawTheme = Int16(theme)
                         viewModel.boxes.append(newBox)
                         CoreDataStack.shared.saveContext()
+                        viewModel.objectWillChange.send()
                         dismiss()
                     }
                     .fontWeight(.bold)
