@@ -60,7 +60,6 @@ struct BoxEditorView: View {
                            viewModel.boxes.append(newBox)
                            CoreDataStack.shared.saveContext()
                        }
-                       viewModel.objectWillChange.send() // Notify main view model (optional)
                        dismiss()
                     }
                     .fontWeight(.bold)
@@ -71,10 +70,11 @@ struct BoxEditorView: View {
 }
 
 struct BoxEditorView_Previews: PreviewProvider {
+    static var newBox = Box(context: CoreDataStack.shared.managedContext)
+    
     static var previews: some View {
         BoxEditorView(
-            editorViewModel: BoxEditorViewModel(
-                box: Box(context: CoreDataStack.shared.managedContext))
+            editorViewModel: BoxEditorViewModel(box: newBox)
         )
     }
 }

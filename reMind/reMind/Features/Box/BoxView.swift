@@ -10,6 +10,7 @@ import SwiftUI
 struct BoxView: View {
     var box: Box
     @State private var searchText: String = ""
+    @State private var isCreatingNewTerm = false
 
     private var filteredTerms: [Term] {
         let termsSet = box.terms as? Set<Term> ?? []
@@ -26,8 +27,8 @@ struct BoxView: View {
     
     var body: some View {
         List {
-                TodaysCardsView(numberOfPendingCards: 0,
-                                theme: .mauve)
+            TodaysCardsView(numberOfPendingCards: 0,
+                            theme: .mauve)
             Section {
                 ForEach(filteredTerms, id: \.self) { term in
                     Text(term.value ?? "Unknown")
@@ -39,7 +40,7 @@ struct BoxView: View {
                             } label: {
                                 Image(systemName: "trash")
                             }
-
+                            
                         }
                 }
             } header: {
@@ -51,7 +52,7 @@ struct BoxView: View {
                     .padding(.leading, -16)
                     .padding(.bottom, 16)
             }
-
+            
         }
         .scrollContentBackground(.hidden)
         .background(reBackground())
@@ -60,18 +61,21 @@ struct BoxView: View {
         .toolbar {
             ToolbarItemGroup(placement: .navigationBarTrailing) {
                 Button {
-                   print("edit")
+                    print("edit")
                 } label: {
                     Image(systemName: "square.and.pencil")
                 }
-
+                
                 Button {
-                    print("add")
+                    isCreatingNewTerm.toggle()
                 } label: {
                     Image(systemName: "plus")
                 }
-
+                
             }
+        }
+        .sheet(isPresented: $isCreatingNewTerm) {
+            TermEditorView(box: box)
         }
     }
 }

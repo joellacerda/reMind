@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct TermEditorView: View {
+    let box: Box
     @State var term: String
     @State var meaning: String
+    
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         NavigationStack {
@@ -18,11 +21,12 @@ struct TermEditorView: View {
                 reTextEditor(title: "Meaning", text: $meaning)
                 
                 Spacer()
-
+              
                 Button(action: {
-                    print("save and add new")
+                    saveTerm()
+                    dismiss()
                 }, label: {
-                    Text("Save and Add New")
+                    Text("Add Term")
                         .frame(maxWidth: .infinity)
                 })
                 .buttonStyle(reButtonStyle())
@@ -34,23 +38,34 @@ struct TermEditorView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button("Cancel") {
-                        print("Cancel")
+                        dismiss()
                     }
                 }
                 
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Save") {
-                        print("Cancel")
-                    }
-                    .fontWeight(.bold)
-                }
+//                ToolbarItem(placement: .navigationBarTrailing) {
+//                    Button("Save") {
+//                        print("Cancel")
+//                    }
+//                    .fontWeight(.bold)
+//                }
             }
         }
+    }
+    
+    func saveTerm() {
+        let newTerm: Term = Term(context: CoreDataStack.shared.managedContext)
+        newTerm.value = term
+        newTerm.meaning = meaning
+        box.addToTerms(newTerm)
+        CoreDataStack.shared.saveContext()
     }
 }
 
 struct TermEditorView_Previews: PreviewProvider {
     static var previews: some View {
-        TermEditorView(term: "", meaning: "")
+        let context = CoreDataStack.inMemory.managedContext
+        let box = Box(context: context)
+        box.name = "Box 1"
+        return TermEditorView(box: box, term: "", meaning: "")
     }
 }
