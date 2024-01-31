@@ -23,6 +23,10 @@ extension Box {
     @NSManaged public var name: String?
     @NSManaged public var rawTheme: Int16
     @NSManaged public var terms: NSSet?
+    
+    // New properties for keywords and description
+    @NSManaged public var keywords: String?
+    @NSManaged public var boxDescription: String?
 
 }
 

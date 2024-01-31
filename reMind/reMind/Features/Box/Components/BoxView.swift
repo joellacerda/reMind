@@ -9,7 +9,6 @@ import SwiftUI
 
 struct BoxView: View {
     var box: Box
-
     @State private var searchText: String = ""
 
     private var filteredTerms: [Term] {
@@ -36,7 +35,7 @@ struct BoxView: View {
                         .fontWeight(.bold)
                         .swipeActions(edge: .trailing) {
                             Button(role: .destructive) {
-                                print("delete")
+                                
                             } label: {
                                 Image(systemName: "trash")
                             }
@@ -61,7 +60,7 @@ struct BoxView: View {
         .toolbar {
             ToolbarItemGroup(placement: .navigationBarTrailing) {
                 Button {
-                    print("edit")
+                   print("edit")
                 } label: {
                     Image(systemName: "square.and.pencil")
                 }

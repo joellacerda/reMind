@@ -5,35 +5,34 @@
 //  Created by Pedro Sousa on 29/06/23.
 //
 
+
 import SwiftUI
 
 struct BoxEditorView: View {
-    @State var name: String
-    @State var keywords: String
-    @State var description: String
-    @State var theme: Int
-    
+    var box: Box?
+    @StateObject var editorViewModel = BoxEditorViewModel()
+
     @EnvironmentObject var viewModel: BoxViewModel
     @Environment(\.dismiss)  var dismiss
 
     var body: some View {
         NavigationStack {
             VStack(spacing: 20) {
-                reTextField(title: "Name", text: $name)
+                reTextField(title: "Name", text: $editorViewModel.name)
                 reTextField(title: "Keywords",
                             caption: "Separated by , (comma)",
-                            text: $keywords)
+                            text: $editorViewModel.keywords)
                 
                 reTextEditor(title: "Description",
-                             text: $description)
+                             text: $editorViewModel.boxDescription)
 
                 reRadioButtonGroup(title: "Theme",
-                                   currentSelection: $theme)
+                                   currentSelection: $editorViewModel.theme)
                 Spacer()
             }
             .padding()
             .background(reBackground())
-            .navigationTitle("New Box")
+            .navigationTitle(editorViewModel.isEditingExistingBox ? "Edit Box" : "New Box")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -43,14 +42,26 @@ struct BoxEditorView: View {
                 }
 
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Save") {
-                        let newBox = Box(context: CoreDataStack.shared.managedContext)
-                        newBox.name = name
-                        newBox.rawTheme = Int16(theme)
-                        viewModel.boxes.append(newBox)
-                        CoreDataStack.shared.saveContext()
-                        viewModel.objectWillChange.send()
-                        dismiss()
+                    Button(editorViewModel.isEditingExistingBox ? "Update" : "Save") {
+                        if editorViewModel.isEditingExistingBox {
+                           // Update existing box
+                           editorViewModel.originalBox?.name = editorViewModel.name
+                           editorViewModel.originalBox?.keywords = editorViewModel.keywords
+                           editorViewModel.originalBox?.boxDescription = editorViewModel.boxDescription
+                           editorViewModel.originalBox?.rawTheme = Int16(editorViewModel.theme)
+                           CoreDataStack.shared.saveContext()
+                       } else {
+                           // Create new box
+                           let newBox = Box(context: CoreDataStack.shared.managedContext)
+                           newBox.name = editorViewModel.name
+                           newBox.keywords = editorViewModel.keywords
+                           newBox.boxDescription = editorViewModel.boxDescription
+                           newBox.rawTheme = Int16(editorViewModel.theme)
+                           viewModel.boxes.append(newBox)
+                           CoreDataStack.shared.saveContext()
+                       }
+                       viewModel.objectWillChange.send() // Notify main view model (optional)
+                       dismiss()
                     }
                     .fontWeight(.bold)
                 }
@@ -61,9 +72,9 @@ struct BoxEditorView: View {
 
 struct BoxEditorView_Previews: PreviewProvider {
     static var previews: some View {
-        BoxEditorView(name: "",
-                      keywords: "",
-                      description: "",
-                      theme: 0)
+        BoxEditorView(
+            editorViewModel: BoxEditorViewModel(
+                box: Box(context: CoreDataStack.shared.managedContext))
+        )
     }
 }
