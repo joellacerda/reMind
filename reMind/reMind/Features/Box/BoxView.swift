@@ -75,7 +75,7 @@ struct BoxView: View {
             }
         }
         .sheet(isPresented: $isCreatingNewTerm) {
-            TermEditorView(box: box)
+//            TermEditorView(box: box)
         }
     }
 }

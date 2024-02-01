@@ -23,7 +23,7 @@ struct TermEditorView: View {
                 Spacer()
               
                 Button(action: {
-                    saveTerm()
+//                    saveTerm()
                     dismiss()
                 }, label: {
                     Text("Add Term")
@@ -52,13 +52,13 @@ struct TermEditorView: View {
         }
     }
     
-    func saveTerm() {
-        let newTerm: Term = Term(context: CoreDataStack.shared.managedContext)
-        newTerm.value = term
-        newTerm.meaning = meaning
-        box.addToTerms(newTerm)
-        CoreDataStack.shared.saveContext()
-    }
+//    func saveTerm() {
+//        let newTerm: Term = Term(context: CoreDataStack.shared.managedContext)
+//        newTerm.value = term
+//        newTerm.meaning = meaning
+//        box.addToTerms(newTerm)
+//        CoreDataStack.shared.saveContext()
+//    }
 }
 
 struct TermEditorView_Previews: PreviewProvider {

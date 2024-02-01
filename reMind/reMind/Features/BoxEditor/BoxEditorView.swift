@@ -10,29 +10,33 @@ import SwiftUI
 
 struct BoxEditorView: View {
     var box: Box?
-    @StateObject var editorViewModel = BoxEditorViewModel()
+    @StateObject var viewModel = BoxEditorViewModel()
 
-    @EnvironmentObject var viewModel: BoxViewModel
+    @EnvironmentObject var boxViewModel: BoxViewModel
     @Environment(\.dismiss)  var dismiss
+    
+    init(box: Box? = nil) {
+        _viewModel = StateObject(wrappedValue: BoxEditorViewModel(box: box))
+    }
 
     var body: some View {
         NavigationStack {
             VStack(spacing: 20) {
-                reTextField(title: "Name", text: $editorViewModel.name)
+                reTextField(title: "Name", text: $viewModel.name)
                 reTextField(title: "Keywords",
                             caption: "Separated by , (comma)",
-                            text: $editorViewModel.keywords)
+                            text: $viewModel.keywords)
                 
                 reTextEditor(title: "Description",
-                             text: $editorViewModel.boxDescription)
+                             text: $viewModel.boxDescription)
 
                 reRadioButtonGroup(title: "Theme",
-                                   currentSelection: $editorViewModel.theme)
+                                   currentSelection: $viewModel.theme)
                 Spacer()
             }
             .padding()
             .background(reBackground())
-            .navigationTitle(editorViewModel.isEditingExistingBox ? "Edit Box" : "New Box")
+            .navigationTitle(viewModel.isEditingExistingBox ? "Edit Box" : "New Box")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -42,25 +46,28 @@ struct BoxEditorView: View {
                 }
 
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(editorViewModel.isEditingExistingBox ? "Update" : "Save") {
-                        if editorViewModel.isEditingExistingBox {
+                    Button(viewModel.isEditingExistingBox ? "Update" : "Save") {
+                        if viewModel.isEditingExistingBox {
                            // Update existing box
-                           editorViewModel.originalBox?.name = editorViewModel.name
-                           editorViewModel.originalBox?.keywords = editorViewModel.keywords
-                           editorViewModel.originalBox?.boxDescription = editorViewModel.boxDescription
-                           editorViewModel.originalBox?.rawTheme = Int16(editorViewModel.theme)
-                           CoreDataStack.shared.saveContext()
+                           viewModel.originalBox?.name = viewModel.name
+                           viewModel.originalBox?.keywords = viewModel.keywords
+                           viewModel.originalBox?.boxDescription = viewModel.boxDescription
+                           viewModel.originalBox?.rawTheme = Int16(viewModel.theme)
                        } else {
                            // Create new box
                            let newBox = Box(context: CoreDataStack.shared.managedContext)
-                           newBox.name = editorViewModel.name
-                           newBox.keywords = editorViewModel.keywords
-                           newBox.boxDescription = editorViewModel.boxDescription
-                           newBox.rawTheme = Int16(editorViewModel.theme)
-                           viewModel.boxes.append(newBox)
-                           CoreDataStack.shared.saveContext()
+                           newBox.name = viewModel.name
+                           newBox.keywords = viewModel.keywords
+                           newBox.boxDescription = viewModel.boxDescription
+                           newBox.rawTheme = Int16(viewModel.theme)
+                           boxViewModel.boxes.append(newBox)
                        }
-                       dismiss()
+                        do {
+                            try CoreDataStack.shared.saveContext()
+                            dismiss()
+                        } catch {
+                            print("Error saving context: \(error)")
+                        }
                     }
                     .fontWeight(.bold)
                 }
@@ -71,10 +78,9 @@ struct BoxEditorView: View {
 
 struct BoxEditorView_Previews: PreviewProvider {
     static var newBox = Box(context: CoreDataStack.shared.managedContext)
-    
+
     static var previews: some View {
-        BoxEditorView(
-            editorViewModel: BoxEditorViewModel(box: newBox)
-        )
+        BoxEditorView(box: newBox)
+            .environmentObject(BoxViewModel())
     }
 }

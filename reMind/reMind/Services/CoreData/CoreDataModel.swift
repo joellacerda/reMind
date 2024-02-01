@@ -25,18 +25,25 @@ extension CoreDataModel where Self: NSManagedObject {
         Self.context.delete(self)
     }
 
-    static func all() -> [Self] {
+    static func all() throws -> [Self] {
         let request = NSFetchRequest<Self>(entityName: self.className)
-        guard let result = try? context.fetch(request) else {
-            return [] }
-        return result
+        do {
+            return try context.fetch(request)
+        } catch {
+            throw error
+        }
     }
 
-    static func find(query: String, arguments: [Any]? = nil) -> [Self] {
+    static func find(query: String, arguments: [Any]? = nil) throws -> [Self] {
         let query = NSPredicate(format: query, argumentArray: arguments)
         let request = NSFetchRequest<Self>(entityName: self.className)
         request.predicate = query
-        guard let result = try? context.fetch(request) else { return [] }
-        return result
+
+        do {
+            return try context.fetch(request)
+        } catch {
+            throw error
+        }
     }
+
 }

@@ -13,20 +13,20 @@ struct BoxesView: View {
         GridItem(.adaptive(minimum: 140), spacing: 20)
     ]
     
-    @ObservedObject var viewModel: BoxViewModel
+    @ObservedObject var boxViewModel: BoxViewModel
     @State private var isCreatingNewBox: Bool = false
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             LazyVGrid(columns: columns, spacing: 20) {
-                ForEach(viewModel.boxes) { box in
+                ForEach(boxViewModel.boxes) { box in
                     NavigationLink {
                         BoxView(box: box)
                     } label: {
-                        BoxCardView(boxName: box.name ?? "Unkown",
+                        BoxCardView(boxName: box.name ?? "Unnamed Box",
                                     numberOfTerms: box.numberOfTerms,
                                     theme: box.theme)
-                        .reBadge(viewModel.getNumberOfPendingTerms(of: box))
+                        .reBadge(boxViewModel.getNumberOfPendingTerms(of: box))
                     }
                 }
             }
@@ -46,7 +46,7 @@ struct BoxesView: View {
         }
         .sheet(isPresented: $isCreatingNewBox) {
             BoxEditorView()
-            .environmentObject(viewModel)
+            .environmentObject(boxViewModel)
         }
     }
 }
@@ -77,7 +77,7 @@ struct BoxesView_Previews: PreviewProvider {
     
     static var previews: some View {
         NavigationStack {
-            BoxesView(viewModel: BoxesView_Previews.viewModel)
+            BoxesView(boxViewModel: BoxesView_Previews.viewModel)
         }
     }
 }

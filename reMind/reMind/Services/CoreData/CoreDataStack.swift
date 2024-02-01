@@ -39,19 +39,14 @@ class CoreDataStack {
         }
     }
 
-
-    @discardableResult
-    func saveContext() -> Bool {
+    func saveContext() throws {
         let context = persistentContainer.viewContext
         if context.hasChanges {
             do {
                 try context.save()
-                return true
-            } catch let error as NSError {
-                print("CoreDataStack Error - Unresolved error \(error), \(error.userInfo)")
-                return false
+            } catch {
+                throw error
             }
         }
-        return true
     }
 }
