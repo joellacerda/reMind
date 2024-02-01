@@ -30,7 +30,8 @@ struct BoxView: View {
     
     var body: some View {
         List {
-            Text(boxDescription)
+            // Show box description if it exists
+            boxDescription != "" ? Section { Text(boxDescription).font(.headline) } : nil
             TodaysCardsView(numberOfPendingCards: 0,
                             theme: box.theme)
             Section {
