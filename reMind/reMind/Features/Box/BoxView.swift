@@ -31,17 +31,7 @@ struct BoxView: View {
                             theme: .mauve)
             Section {
                 ForEach(filteredTerms, id: \.self) { term in
-                    Text(term.value ?? "Unknown")
-                        .padding(.vertical, 8)
-                        .fontWeight(.bold)
-                        .swipeActions(edge: .trailing) {
-                            Button(role: .destructive) {
-                                
-                            } label: {
-                                Image(systemName: "trash")
-                            }
-                            
-                        }
+                    TermRowView(term: term)
                 }
             } header: {
                 Text("All Cards")

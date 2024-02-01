@@ -12,6 +12,7 @@
 		3C2B55992B61595C0088C18C /* reRadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2B55982B61595C0088C18C /* reRadioButton.swift */; };
 		3C2B559B2B6159C40088C18C /* reRadioButtonGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2B559A2B6159C40088C18C /* reRadioButtonGroup.swift */; };
 		3C2B559D2B616D1A0088C18C /* reTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2B559C2B616D1A0088C18C /* reTextEditor.swift */; };
+		3C4A70522B6C09A200D678A0 /* TermRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4A70512B6C09A200D678A0 /* TermRowView.swift */; };
 		3C554EC62B6AB105001509DA /* TermEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C554EC52B6AB105001509DA /* TermEditorView.swift */; };
 		3C554EC82B6AB745001509DA /* BoxEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C554EC72B6AB745001509DA /* BoxEditorView.swift */; };
 		3C554ECA2B6AC1E0001509DA /* BoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C554EC92B6AC1E0001509DA /* BoxView.swift */; };
@@ -48,6 +49,7 @@
 		3C2B55982B61595C0088C18C /* reRadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reRadioButton.swift; sourceTree = "<group>"; };
 		3C2B559A2B6159C40088C18C /* reRadioButtonGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reRadioButtonGroup.swift; sourceTree = "<group>"; };
 		3C2B559C2B616D1A0088C18C /* reTextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reTextEditor.swift; sourceTree = "<group>"; };
+		3C4A70512B6C09A200D678A0 /* TermRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermRowView.swift; sourceTree = "<group>"; };
 		3C554EC52B6AB105001509DA /* TermEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermEditorView.swift; sourceTree = "<group>"; };
 		3C554EC72B6AB745001509DA /* BoxEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxEditorView.swift; sourceTree = "<group>"; };
 		3C554EC92B6AC1E0001509DA /* BoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxView.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				FE3ABED72A5328FD00432ED4 /* TodaysCardsView.swift */,
+				3C4A70512B6C09A200D678A0 /* TermRowView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -415,6 +418,7 @@
 				FE6F11B12A605A4C003511F3 /* NSObject.swift in Sources */,
 				FE6F11AD2A6059FD003511F3 /* CoreDataStack.swift in Sources */,
 				FE6F11B32A605A69003511F3 /* ActiveRecord.swift in Sources */,
+				3C4A70522B6C09A200D678A0 /* TermRowView.swift in Sources */,
 				3C554EC62B6AB105001509DA /* TermEditorView.swift in Sources */,
 				FE3ABEE62A5354AF00432ED4 /* reTheme.swift in Sources */,
 				3C2B55992B61595C0088C18C /* reRadioButton.swift in Sources */,
