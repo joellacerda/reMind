@@ -9,6 +9,9 @@ import SwiftUI
 
 struct BoxView: View {
     var box: Box
+    @State private var boxName: String = ""
+    @State private var boxDescription: String = ""
+    
     @State private var searchText: String = ""
     @State private var isCreatingNewTerm = false
 
@@ -27,8 +30,9 @@ struct BoxView: View {
     
     var body: some View {
         List {
+            Text(boxDescription)
             TodaysCardsView(numberOfPendingCards: 0,
-                            theme: .mauve)
+                            theme: box.theme)
             Section {
                 ForEach(filteredTerms, id: \.self) { term in
                     TermRowView(term: term)
@@ -44,15 +48,23 @@ struct BoxView: View {
             }
             
         }
+        .onChange(of: box.name) { newName in
+            // Update the navigation title and save the new name
+            boxName = newName ?? "Unnamed Box"
+            boxDescription = box.boxDescription ?? ""
+        }
+        .onAppear {
+            // Set initial values for the title and description
+            boxName = box.name ?? "Unnamed Box"
+            boxDescription = box.boxDescription ?? ""
+        }
         .scrollContentBackground(.hidden)
         .background(reBackground())
-        .navigationTitle(box.name ?? "Unknown")
+        .navigationTitle(boxName)
         .searchable(text: $searchText, prompt: "")
         .toolbar {
             ToolbarItemGroup(placement: .navigationBarTrailing) {
-                Button {
-                    print("edit")
-                } label: {
+                NavigationLink(destination: BoxEditorView(box: box)) {
                     Image(systemName: "square.and.pencil")
                 }
                 

@@ -39,12 +39,6 @@ struct BoxEditorView: View {
             .navigationTitle(viewModel.isEditingExistingBox ? "Edit Box" : "New Box")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button("Cancel") {
-                        dismiss()
-                    }
-                }
-
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(viewModel.isEditingExistingBox ? "Update" : "Save") {
                         if viewModel.isEditingExistingBox {
