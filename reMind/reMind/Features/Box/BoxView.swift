@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct BoxView: View {
-    var box: Box
+    @ObservedObject var box: Box
     @State private var boxName: String = ""
     @State private var boxDescription: String = ""
     
@@ -78,7 +78,7 @@ struct BoxView: View {
             }
         }
         .sheet(isPresented: $isCreatingNewTerm) {
-//            TermEditorView(box: box)
+            TermEditorView(box: box, term: "", meaning: "")
         }
     }
 }

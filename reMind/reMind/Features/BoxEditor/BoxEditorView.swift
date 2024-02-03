@@ -11,6 +11,7 @@ import SwiftUI
 struct BoxEditorView: View {
     var box: Box?
     @StateObject var viewModel = BoxEditorViewModel()
+    @State private var showAlert = false
 
     @EnvironmentObject var boxViewModel: BoxViewModel
     @Environment(\.dismiss)  var dismiss
@@ -41,31 +42,41 @@ struct BoxEditorView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(viewModel.isEditingExistingBox ? "Update" : "Save") {
-                        if viewModel.isEditingExistingBox {
-                           // Update existing box
-                           viewModel.originalBox?.name = viewModel.name
-                           viewModel.originalBox?.keywords = viewModel.keywords
-                           viewModel.originalBox?.boxDescription = viewModel.boxDescription
-                           viewModel.originalBox?.rawTheme = Int16(viewModel.theme)
-                       } else {
-                           // Create new box
-                           let newBox = Box(context: CoreDataStack.shared.managedContext)
-                           newBox.name = viewModel.name
-                           newBox.keywords = viewModel.keywords
-                           newBox.boxDescription = viewModel.boxDescription
-                           newBox.rawTheme = Int16(viewModel.theme)
-                           boxViewModel.boxes.append(newBox)
-                       }
-                        do {
-                            try CoreDataStack.shared.saveContext()
-                            dismiss()
-                        } catch {
-                            print("Error saving context: \(error)")
+                        if viewModel.name.isEmpty {
+                            // Show an alert or handle the error appropriately
+                            
+                            print("Box name cannot be empty")
+                        } else {
+                            createOrUpdateBox()
                         }
                     }
                     .fontWeight(.bold)
                 }
             }
+        }
+    }
+    
+    func createOrUpdateBox() {
+        if viewModel.isEditingExistingBox {
+           // Update existing box
+           viewModel.originalBox?.name = viewModel.name
+           viewModel.originalBox?.keywords = viewModel.keywords
+           viewModel.originalBox?.boxDescription = viewModel.boxDescription
+           viewModel.originalBox?.rawTheme = Int16(viewModel.theme)
+       } else {
+           // Create new box
+           let newBox = Box(context: CoreDataStack.shared.managedContext)
+           newBox.name = viewModel.name
+           newBox.keywords = viewModel.keywords
+           newBox.boxDescription = viewModel.boxDescription
+           newBox.rawTheme = Int16(viewModel.theme)
+           boxViewModel.boxes.append(newBox)
+       }
+        do {
+            try CoreDataStack.shared.saveContext()
+            dismiss()
+        } catch {
+            print("Error saving context: \(error)")
         }
     }
 }

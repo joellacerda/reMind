@@ -23,7 +23,7 @@ struct TermEditorView: View {
                 Spacer()
               
                 Button(action: {
-//                    saveTerm()
+                    saveTerm()
                     dismiss()
                 }, label: {
                     Text("Add Term")
@@ -41,24 +41,22 @@ struct TermEditorView: View {
                         dismiss()
                     }
                 }
-                
-//                ToolbarItem(placement: .navigationBarTrailing) {
-//                    Button("Save") {
-//                        print("Cancel")
-//                    }
-//                    .fontWeight(.bold)
-//                }
             }
         }
     }
     
-//    func saveTerm() {
-//        let newTerm: Term = Term(context: CoreDataStack.shared.managedContext)
-//        newTerm.value = term
-//        newTerm.meaning = meaning
-//        box.addToTerms(newTerm)
-//        CoreDataStack.shared.saveContext()
-//    }
+    func saveTerm() {
+        let newTerm: Term = Term(context: CoreDataStack.shared.managedContext)
+        newTerm.value = term
+        newTerm.meaning = meaning
+        box.addToTerms(newTerm)
+        do {
+           try CoreDataStack.shared.saveContext()
+       } catch {
+           // Handle the error appropriately, e.g., print or show an alert
+           print("Error saving context: \(error)")
+       }
+    }
 }
 
 struct TermEditorView_Previews: PreviewProvider {
