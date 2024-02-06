@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct SwipperCard<FrontContent: View, BackContent: View>: View {
-    @Binding var direction: SwipperDirection
+struct SwiperCard<FrontContent: View, BackContent: View>: View {
+    @Binding var direction: SwiperDirection
 
     @ViewBuilder var frontContent: () -> FrontContent
     @ViewBuilder var backContent: () -> BackContent
@@ -107,9 +107,9 @@ struct SwipperCard<FrontContent: View, BackContent: View>: View {
     }
 }
 
-struct SwipperCard_Previews: PreviewProvider {
+struct SwiperCard_Previews: PreviewProvider {
     static var previews: some View {
-        SwipperCard(direction: .constant(.none)) {
+        SwiperCard(direction: .constant(.none)) {
             Text("Term")
         } backContent: {
             Text("Meaning")

@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		3C08A6282B69635A00AE6146 /* BoxEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C08A6272B69635A00AE6146 /* BoxEditorViewModel.swift */; };
+		3C1C34FD2B72BDBA009B932F /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1C34FC2B72BDBA009B932F /* Box.swift */; };
+		3C1C34FF2B72BDF4009B932F /* SwiperLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1C34FE2B72BDF4009B932F /* SwiperLabel.swift */; };
+		3C1C35012B72BE52009B932F /* Term.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1C35002B72BE52009B932F /* Term.swift */; };
+		3C1C35032B72BE78009B932F /* TodaysCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1C35022B72BE78009B932F /* TodaysCardsView.swift */; };
+		3C1C35052B72BEA4009B932F /* SwiperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1C35042B72BEA4009B932F /* SwiperView.swift */; };
 		3C2B55952B6155FA0088C18C /* BoxesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2B55942B6155FA0088C18C /* BoxesView.swift */; };
 		3C2B55992B61595C0088C18C /* reRadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2B55982B61595C0088C18C /* reRadioButton.swift */; };
 		3C2B559B2B6159C40088C18C /* reRadioButtonGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2B559A2B6159C40088C18C /* reRadioButtonGroup.swift */; };
@@ -16,14 +21,9 @@
 		3C554EC62B6AB105001509DA /* TermEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C554EC52B6AB105001509DA /* TermEditorView.swift */; };
 		3C554EC82B6AB745001509DA /* BoxEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C554EC72B6AB745001509DA /* BoxEditorView.swift */; };
 		3C920E352B6EEBD200F811BD /* BoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C920E342B6EEBD200F811BD /* BoxView.swift */; };
-		FE1640962AC2126E0073317C /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1640922AC2126E0073317C /* Box.swift */; };
-		FE1640992AC2126E0073317C /* Term.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1640952AC2126E0073317C /* Term.swift */; };
 		FE3ABED22A4F680C00432ED4 /* reButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3ABED12A4F680C00432ED4 /* reButtonStyle.swift */; };
-		FE3ABED82A5328FD00432ED4 /* TodaysCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3ABED72A5328FD00432ED4 /* TodaysCardsView.swift */; };
 		FE3ABEDA2A532A4D00432ED4 /* reColorButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3ABED92A532A4D00432ED4 /* reColorButtonStyle.swift */; };
-		FE3ABEDF2A53522A00432ED4 /* SwipperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3ABEDE2A53522A00432ED4 /* SwipperView.swift */; };
 		FE3ABEE62A5354AF00432ED4 /* reTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3ABEE52A5354AF00432ED4 /* reTheme.swift */; };
-		FE3ABEE92A53563F00432ED4 /* SwipperLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3ABEE82A53563F00432ED4 /* SwipperLabel.swift */; };
 		FE5B807A2A4CB0DA00711F80 /* reBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5B80792A4CB0DA00711F80 /* reBadge.swift */; };
 		FE6A9F9A2A461E2400A84FC9 /* reMindApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6A9F992A461E2400A84FC9 /* reMindApp.swift */; };
 		FE6A9F9E2A461E2500A84FC9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE6A9F9D2A461E2500A84FC9 /* Assets.xcassets */; };
@@ -34,7 +34,7 @@
 		FE6F11B32A605A69003511F3 /* ActiveRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6F11B22A605A69003511F3 /* ActiveRecord.swift */; };
 		FE6F11B62A605AB9003511F3 /* reMind.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FE6F11B42A605AB9003511F3 /* reMind.xcdatamodeld */; };
 		FEA517AA2A548FBC0004D9D1 /* SwipeReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA517A92A548FBC0004D9D1 /* SwipeReview.swift */; };
-		FEA517AE2A54963E0004D9D1 /* SwipperCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA517AD2A54963E0004D9D1 /* SwipperCard.swift */; };
+		FEA517AE2A54963E0004D9D1 /* SwiperCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA517AD2A54963E0004D9D1 /* SwiperCard.swift */; };
 		FEDE8E052A4DFADE00EEF7EA /* reTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEDE8E042A4DFADE00EEF7EA /* reTextField.swift */; };
 		FEDE8E072A4DFEBD00EEF7EA /* reTexFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEDE8E062A4DFEBD00EEF7EA /* reTexFieldStyle.swift */; };
 		FEE2DC732A4B5CE4006A535D /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE2DC722A4B5CE4006A535D /* Palette.swift */; };
@@ -45,6 +45,11 @@
 
 /* Begin PBXFileReference section */
 		3C08A6272B69635A00AE6146 /* BoxEditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BoxEditorViewModel.swift; path = ../../../../../../../../../../Documents/BoxEditorViewModel.swift; sourceTree = "<group>"; };
+		3C1C34FC2B72BDBA009B932F /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
+		3C1C34FE2B72BDF4009B932F /* SwiperLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiperLabel.swift; sourceTree = "<group>"; };
+		3C1C35002B72BE52009B932F /* Term.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Term.swift; sourceTree = "<group>"; };
+		3C1C35022B72BE78009B932F /* TodaysCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodaysCardsView.swift; sourceTree = "<group>"; };
+		3C1C35042B72BEA4009B932F /* SwiperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiperView.swift; sourceTree = "<group>"; };
 		3C2B55942B6155FA0088C18C /* BoxesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxesView.swift; sourceTree = "<group>"; };
 		3C2B55982B61595C0088C18C /* reRadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reRadioButton.swift; sourceTree = "<group>"; };
 		3C2B559A2B6159C40088C18C /* reRadioButtonGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reRadioButtonGroup.swift; sourceTree = "<group>"; };
@@ -53,14 +58,9 @@
 		3C554EC52B6AB105001509DA /* TermEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermEditorView.swift; sourceTree = "<group>"; };
 		3C554EC72B6AB745001509DA /* BoxEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxEditorView.swift; sourceTree = "<group>"; };
 		3C920E342B6EEBD200F811BD /* BoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxView.swift; sourceTree = "<group>"; };
-		FE1640922AC2126E0073317C /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = SOURCE_ROOT; };
-		FE1640952AC2126E0073317C /* Term.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Term.swift; sourceTree = SOURCE_ROOT; };
 		FE3ABED12A4F680C00432ED4 /* reButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reButtonStyle.swift; sourceTree = "<group>"; };
-		FE3ABED72A5328FD00432ED4 /* TodaysCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodaysCardsView.swift; sourceTree = "<group>"; };
 		FE3ABED92A532A4D00432ED4 /* reColorButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reColorButtonStyle.swift; sourceTree = "<group>"; };
-		FE3ABEDE2A53522A00432ED4 /* SwipperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipperView.swift; sourceTree = "<group>"; };
 		FE3ABEE52A5354AF00432ED4 /* reTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reTheme.swift; sourceTree = "<group>"; };
-		FE3ABEE82A53563F00432ED4 /* SwipperLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipperLabel.swift; sourceTree = "<group>"; };
 		FE5B80792A4CB0DA00711F80 /* reBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reBadge.swift; sourceTree = "<group>"; };
 		FE6A9F962A461E2400A84FC9 /* reMind.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = reMind.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE6A9F992A461E2400A84FC9 /* reMindApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reMindApp.swift; sourceTree = "<group>"; };
@@ -72,7 +72,7 @@
 		FE6F11B22A605A69003511F3 /* ActiveRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveRecord.swift; sourceTree = "<group>"; };
 		FE6F11B52A605AB9003511F3 /* reMind.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = reMind.xcdatamodel; sourceTree = "<group>"; };
 		FEA517A92A548FBC0004D9D1 /* SwipeReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeReview.swift; sourceTree = "<group>"; };
-		FEA517AD2A54963E0004D9D1 /* SwipperCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipperCard.swift; sourceTree = "<group>"; };
+		FEA517AD2A54963E0004D9D1 /* SwiperCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiperCard.swift; sourceTree = "<group>"; };
 		FEDE8E042A4DFADE00EEF7EA /* reTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reTextField.swift; sourceTree = "<group>"; };
 		FEDE8E062A4DFEBD00EEF7EA /* reTexFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reTexFieldStyle.swift; sourceTree = "<group>"; };
 		FEE2DC722A4B5CE4006A535D /* Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
@@ -120,8 +120,8 @@
 		FE3ABED62A5328C100432ED4 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				FE3ABED72A5328FD00432ED4 /* TodaysCardsView.swift */,
 				3C4A70512B6C09A200D678A0 /* TermRowView.swift */,
+				3C1C35022B72BE78009B932F /* TodaysCardsView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -130,7 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				FE3ABEE72A53562400432ED4 /* Components */,
-				FE3ABEDE2A53522A00432ED4 /* SwipperView.swift */,
+				3C1C35042B72BEA4009B932F /* SwiperView.swift */,
 			);
 			path = Swipper;
 			sourceTree = "<group>";
@@ -138,8 +138,8 @@
 		FE3ABEE02A53543300432ED4 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				FE1640922AC2126E0073317C /* Box.swift */,
-				FE1640952AC2126E0073317C /* Term.swift */,
+				3C1C34FC2B72BDBA009B932F /* Box.swift */,
+				3C1C35002B72BE52009B932F /* Term.swift */,
 				FEA517A92A548FBC0004D9D1 /* SwipeReview.swift */,
 				FE6F11B42A605AB9003511F3 /* reMind.xcdatamodeld */,
 			);
@@ -149,8 +149,8 @@
 		FE3ABEE72A53562400432ED4 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				FE3ABEE82A53563F00432ED4 /* SwipperLabel.swift */,
-				FEA517AD2A54963E0004D9D1 /* SwipperCard.swift */,
+				FEA517AD2A54963E0004D9D1 /* SwiperCard.swift */,
+				3C1C34FE2B72BDF4009B932F /* SwiperLabel.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -395,27 +395,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C1C35052B72BEA4009B932F /* SwiperView.swift in Sources */,
 				FEEFCBBD2A65DAA400A61FE9 /* BoxViewModel.swift in Sources */,
 				FEDE8E052A4DFADE00EEF7EA /* reTextField.swift in Sources */,
-				FE3ABEE92A53563F00432ED4 /* SwipperLabel.swift in Sources */,
 				FEE2DC752A4B6172006A535D /* reBackground.swift in Sources */,
 				3C554EC82B6AB745001509DA /* BoxEditorView.swift in Sources */,
 				3C08A6282B69635A00AE6146 /* BoxEditorViewModel.swift in Sources */,
 				FEA517AA2A548FBC0004D9D1 /* SwipeReview.swift in Sources */,
-				FEA517AE2A54963E0004D9D1 /* SwipperCard.swift in Sources */,
-				FE1640962AC2126E0073317C /* Box.swift in Sources */,
-				FE1640992AC2126E0073317C /* Term.swift in Sources */,
+				3C1C34FF2B72BDF4009B932F /* SwiperLabel.swift in Sources */,
+				FEA517AE2A54963E0004D9D1 /* SwiperCard.swift in Sources */,
 				FEE2DC732A4B5CE4006A535D /* Palette.swift in Sources */,
 				FE3ABEDA2A532A4D00432ED4 /* reColorButtonStyle.swift in Sources */,
 				3C920E352B6EEBD200F811BD /* BoxView.swift in Sources */,
 				FE3ABED22A4F680C00432ED4 /* reButtonStyle.swift in Sources */,
+				3C1C35032B72BE78009B932F /* TodaysCardsView.swift in Sources */,
+				3C1C34FD2B72BDBA009B932F /* Box.swift in Sources */,
 				FE5B807A2A4CB0DA00711F80 /* reBadge.swift in Sources */,
 				3C2B559D2B616D1A0088C18C /* reTextEditor.swift in Sources */,
 				3C2B55952B6155FA0088C18C /* BoxesView.swift in Sources */,
-				FE3ABED82A5328FD00432ED4 /* TodaysCardsView.swift in Sources */,
 				FE6F11AF2A605A21003511F3 /* CoreDataModel.swift in Sources */,
 				FEDE8E072A4DFEBD00EEF7EA /* reTexFieldStyle.swift in Sources */,
-				FE3ABEDF2A53522A00432ED4 /* SwipperView.swift in Sources */,
 				FE6F11B12A605A4C003511F3 /* NSObject.swift in Sources */,
 				FE6F11AD2A6059FD003511F3 /* CoreDataStack.swift in Sources */,
 				FE6F11B32A605A69003511F3 /* ActiveRecord.swift in Sources */,
@@ -425,6 +424,7 @@
 				3C2B55992B61595C0088C18C /* reRadioButton.swift in Sources */,
 				3C2B559B2B6159C40088C18C /* reRadioButtonGroup.swift in Sources */,
 				FE6A9F9A2A461E2400A84FC9 /* reMindApp.swift in Sources */,
+				3C1C35012B72BE52009B932F /* Term.swift in Sources */,
 				FEE2DC782A4B70FA006A535D /* BoxCardView.swift in Sources */,
 				FE6F11B62A605AB9003511F3 /* reMind.xcdatamodeld in Sources */,
 			);

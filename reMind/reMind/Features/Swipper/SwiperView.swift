@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct SwipperView: View {
+struct SwiperView: View {
     @State var review: SwipeReview
-    @State private var direction: SwipperDirection = .none
+    @State private var direction: SwiperDirection = .none
 
     var body: some View {
         VStack {
@@ -18,7 +18,7 @@ struct SwipperView: View {
 
             Spacer()
 
-            SwipperCard(direction: $direction,
+            SwiperCard(direction: $direction,
                 frontContent: {
                     Text("Term")
                 }, backContent: {
@@ -45,7 +45,7 @@ struct SwipperView: View {
     }
 }
 
-struct SwipperView_Previews: PreviewProvider {
+struct SwiperView_Previews: PreviewProvider {
     static let term: Term = {
         let term = Term(context: CoreDataStack.inMemory.managedContext)
         term.value = "Term"
@@ -57,7 +57,7 @@ struct SwipperView_Previews: PreviewProvider {
     }()
     static var previews: some View {
         NavigationStack {
-            SwipperView(review: SwipeReview(termsToReview: [
+            SwiperView(review: SwipeReview(termsToReview: [
                 Term(context: CoreDataStack.inMemory.managedContext)
             ]))
         }

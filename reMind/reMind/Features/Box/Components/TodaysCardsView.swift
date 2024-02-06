@@ -10,6 +10,7 @@ import SwiftUI
 struct TodaysCardsView: View {
     @State var numberOfPendingCards: Int
     @State var theme: reTheme
+    @State private var isSwiperViewPresented = false
     
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
@@ -28,6 +29,9 @@ struct TodaysCardsView: View {
             .buttonStyle(reColorButtonStyle(.mauve))
             .padding(.top, 10)
         }
+        .sheet(isPresented: $isSwiperViewPresented) {
+                SwiperView(review: SwipeReview(termsToReview: [/* your terms here */]))
+            }
         .padding(.vertical, 16)
     }
 }
