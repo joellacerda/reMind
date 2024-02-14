@@ -12,6 +12,7 @@ struct TodaysCardsView: View {
     @State var theme: reTheme
     @State private var isSwiperViewPresented = false
     
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             Text("Today's Cards")
@@ -20,12 +21,12 @@ struct TodaysCardsView: View {
             Text("\(numberOfPendingCards) cards to review")
                 .font(.title3)
 
-            Button(action: {
-                print("swippe time!")
-            }, label: {
+            NavigationLink() {
+//                SwiperView(review: <#SwipeReview#>)
+            } label: {
                 Text("Start Swipping")
                     .frame(maxWidth: .infinity)
-            })
+            }
             .buttonStyle(reColorButtonStyle(.mauve))
             .padding(.top, 10)
         }

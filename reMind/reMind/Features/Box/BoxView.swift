@@ -11,9 +11,10 @@ struct BoxView: View {
     @ObservedObject var box: Box
     @State private var boxName: String = ""
     @State private var boxDescription: String = ""
-    
     @State private var searchText: String = ""
     @State private var isCreatingNewTerm = false
+    @State private var termsToReview: [Term] = []
+    @State private var isReviewing: Bool = false
 
     private var filteredTerms: [Term] {
         let termsSet = box.terms as? Set<Term> ?? []
@@ -80,6 +81,11 @@ struct BoxView: View {
         .sheet(isPresented: $isCreatingNewTerm) {
             TermEditorView(box: box, term: "", meaning: "")
         }
+    }
+    
+    private func startReview() {
+        termsToReview = box.terms?.allObjects as? [Term] ?? []
+        isReviewing = true
     }
 }
 

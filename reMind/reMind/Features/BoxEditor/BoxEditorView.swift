@@ -23,7 +23,7 @@ struct BoxEditorView: View {
     var body: some View {
         NavigationStack {
             VStack(spacing: 20) {
-                reTextField(title: "Name", text: $viewModel.name)
+                reTextField(title: "Name", caption: "Required field", text: $viewModel.name)
                 reTextField(title: "Keywords",
                             caption: "Separated by , (comma)",
                             text: $viewModel.keywords)
